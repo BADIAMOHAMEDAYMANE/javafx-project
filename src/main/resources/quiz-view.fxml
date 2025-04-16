@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.controller.QuizController" spacing="10.0">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="subjectLabel" text="Subject">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="questionLabel" text="Question text goes here" wrapText="true">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+
+    <VBox fx:id="optionsContainer" spacing="5.0">
+        <!-- Options will be added dynamically -->
+    </VBox>
+
+    <Button fx:id="submitButton" text="Submit" onAction="#handleSubmit" disable="true" />
+
+    <Label fx:id="feedbackLabel" text="" />
+
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button fx:id="nextButton" text="Next Question" onAction="#handleNextQuestion" visible="false" />
+        <Button fx:id="finishButton" text="Finish Quiz" onAction="#handleFinishQuiz" visible="false" />
+    </HBox>
+</VBox>

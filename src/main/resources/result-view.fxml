@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.jmc.controller.ResultController" spacing="20.0"
+      alignment="CENTER">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Text text="Quiz Results" styleClass="header-text">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Text>
+
+    <Label fx:id="scoreLabel" styleClass="result-text" />
+    <Label fx:id="percentageLabel" styleClass="result-text" />
+
+    <Button text="Return to Main Menu" onAction="#handleReturn" />
+</VBox>

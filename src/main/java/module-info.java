@@ -1,6 +1,7 @@
 module com.example.javafxapp {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
     opens com.jmc to javafx.graphics, javafx.fxml;
     exports com.jmc;

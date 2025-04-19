@@ -1,51 +1,43 @@
 package com.jmc.model;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Quiz {
     private final String subject;
     private final List<Question> questions;
+    private int currentQuestionIndex;
+    private int score;
 
-    public Quiz(String subject) {
+    public Quiz(String subject, List<Question> questions) {
         this.subject = subject;
-        this.questions = new ArrayList<>();
-        initializeQuestions();
+        this.questions = questions;
+        this.currentQuestionIndex = 0;
+        this.score = 0;
     }
 
-    private void initializeQuestions() {
-        if (subject.equals("Sports")) {
-            questions.add(new Question(
-                    "Which sports use a ball?",
-                    List.of("Basketball", "Swimming", "Tennis", "Cycling"),
-                    List.of(0, 2) // First and third options are correct
-            ));
-            questions.add(new Question(
-                    "Which of these are team sports?",
-                    List.of("Golf", "Soccer", "Basketball", "Tennis"),
-                    List.of(1, 2) // Soccer and Basketball
-            ));
-        } else if (subject.equals("Politics")) {
-            questions.add(new Question(
-                    "Which of these are forms of government?",
-                    List.of("Democracy", "Monarchy", "Oligarchy", "Anarchy"),
-                    List.of(0, 1, 2, 3) // All are correct
-            ));
-        } else if (subject.equals("History")) {
-            questions.add(new Question(
-                    "Which events happened in the 20th century?",
-                    List.of("World War I", "French Revolution", "Moon Landing", "American Civil War"),
-                    List.of(0, 2) // WWI and Moon Landing
-            ));
+    // Getters only - immutable after creation
+    public String getSubject() { return subject; }
+    public List<Question> getQuestions() { return questions; }
+    public int getCurrentQuestionIndex() { return currentQuestionIndex; }
+    public int getScore() { return score; }
+    public int getTotalQuestions() { return questions.size(); }
+
+    // Quiz progression methods
+    public Question getCurrentQuestion() {
+        return questions.get(currentQuestionIndex);
+    }
+
+    public boolean hasNextQuestion() {
+        return currentQuestionIndex < questions.size() - 1;
+    }
+
+    public void moveToNextQuestion() {
+        if (hasNextQuestion()) {
+            currentQuestionIndex++;
         }
     }
 
-    public String getSubject() {
-        return subject;
-    }
-
-    public List<Question> getQuestions() {
-        return questions;
+    public void incrementScore() {
+        score++;
     }
 }

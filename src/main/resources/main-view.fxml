@@ -5,21 +5,100 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.HBox?>
 
-<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.jmc.controller.MainController"
-      alignment="CENTER" spacing="20.0">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.jmc.controller.MainController">
 
-    <Text text="Choose a Quiz Subject">
-        <font>
-            <Font size="24.0" />
-        </font>
-    </Text>
+    <!-- Background gradient -->
+    <Rectangle width="600" height="400">
+        <fill>
+            <LinearGradient startX="0.0" startY="0.0" endX="0.0" endY="1.0">
+                <stops>
+                    <Stop color="#5c6bc0" offset="0.0" />
+                    <Stop color="#3949ab" offset="1.0" />
+                </stops>
+            </LinearGradient>
+        </fill>
+    </Rectangle>
 
-    <VBox fx:id="subjectsContainer" alignment="CENTER" spacing="10.0">
-        <!-- Subject buttons will be added here dynamically -->
+    <VBox alignment="CENTER" spacing="30.0" maxWidth="500">
+        <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+        </padding>
+
+        <!-- Header with decorative elements -->
+        <HBox alignment="CENTER" spacing="15.0">
+            <Region prefWidth="40.0" prefHeight="2.0" style="-fx-background-color: #ffab40;" />
+            <Text text="QUIZ MASTER" fill="WHITE">
+                <font>
+                    <Font name="System Bold" size="32.0" />
+                </font>
+                <effect>
+                    <DropShadow color="#00000066" radius="4.0" />
+                </effect>
+            </Text>
+            <Region prefWidth="40.0" prefHeight="2.0" style="-fx-background-color: #ffab40;" />
+        </HBox>
+
+        <Text text="Choisissez votre sujet" fill="WHITE">
+            <font>
+                <Font name="System" size="20.0" />
+            </font>
+            <effect>
+                <DropShadow color="#00000040" radius="2.0" />
+            </effect>
+        </Text>
+
+        <!-- Container for subject buttons -->
+        <VBox fx:id="subjectsContainer" alignment="CENTER" spacing="15.0" maxWidth="350">
+            <!-- Button style examples that can be applied dynamically -->
+            <Button text="Mathématiques" prefWidth="300" prefHeight="50" styleClass="subject-button"/>
+            <Button text="Sciences" prefWidth="300" prefHeight="50" styleClass="subject-button"/>
+            <Button text="Histoire" prefWidth="300" prefHeight="50" styleClass="subject-button"/>
+            <Button text="Géographie" prefWidth="300" prefHeight="50" styleClass="subject-button"/>
+
+            <!-- Style for all buttons can be defined in a CSS file or via the style tag -->
+            <style>
+                .subject-button {
+                -fx-background-color: white;
+                -fx-background-radius: 25;
+                -fx-text-fill: #3949ab;
+                -fx-font-size: 16px;
+                -fx-font-weight: bold;
+                -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 5, 0, 0, 2);
+                -fx-cursor: hand;
+                }
+
+                .subject-button:hover {
+                -fx-background-color: #f5f5f5;
+                -fx-scale-x: 1.03;
+                -fx-scale-y: 1.03;
+                -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 8, 0, 0, 3);
+                }
+
+                .subject-button:pressed {
+                -fx-background-color: #e0e0e0;
+                -fx-scale-x: 0.98;
+                -fx-scale-y: 0.98;
+                -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 3, 0, 0, 1);
+                }
+            </style>
+        </VBox>
+
+        <!-- Footer -->
+        <HBox alignment="CENTER">
+            <Text text="© Quiz App 2025" fill="#ffffffaa">
+                <font>
+                    <Font size="12.0" />
+                </font>
+            </Text>
+        </HBox>
     </VBox>
-</VBox>
+</StackPane>

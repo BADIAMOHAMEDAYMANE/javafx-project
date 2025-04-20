@@ -44,7 +44,7 @@ public class MainController {
     }
 
     private QuestionService initializeServices() throws SQLException {
-        // Initialize your DAOs here
+
         SubjectDao subjectDao = new SubjectDaoImpl();
         QuestionDao questionDao = new QuestionDaoImpl();
         PropositionDao propositionDao = new PropositionDaoImpl();

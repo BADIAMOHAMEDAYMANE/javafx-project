@@ -15,14 +15,14 @@ public class Quiz {
         this.score = 0;
     }
 
-    // Getters only - immutable after creation
+
     public String getSubject() { return subject; }
     public List<Question> getQuestions() { return questions; }
     public int getCurrentQuestionIndex() { return currentQuestionIndex; }
     public int getScore() { return score; }
     public int getTotalQuestions() { return questions.size(); }
 
-    // Quiz progression methods
+
     public Question getCurrentQuestion() {
         return questions.get(currentQuestionIndex);
     }

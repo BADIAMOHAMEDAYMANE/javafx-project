@@ -1,29 +1,37 @@
-🧠 QCM Generator - JavaFX Desktop App
-📖 Présentation
-QCM Generator est une application desktop robuste conçue pour faciliter l'apprentissage par l'auto-évaluation. Grâce à une interface intuitive développée sous JavaFX, l'utilisateur peut générer des questionnaires interactifs sur des thématiques variées et obtenir un feedback instantané sur ses performances.
+# 🧠 QCM Generator - JavaFX Desktop App
 
-🚀 Fonctionnalités Clés
-🎯 Sélection Thématique : Choisissez un domaine spécifique pour générer des questions ciblées.
+<p align="left">
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaFX-000000?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Architecture-MVC-green?style=for-the-badge" />
+</p>
 
-⚡ Génération Dynamique : Les questions sont injectées dynamiquement dans l'interface (Architecture FXML).
+## 📖 Présentation
+**QCM Generator** est une application desktop robuste conçue pour faciliter l'apprentissage par l'auto-évaluation. Grâce à une interface intuitive développée sous **JavaFX**, l'utilisateur peut générer des questionnaires interactifs sur des thématiques variées et obtenir un feedback instantané sur ses performances.
 
-📊 Score en Temps Réel : Calcul automatique et affichage des résultats à la fin du quiz.
+---
 
-🎨 UI Moderne : Interface responsive et épurée utilisant les contrôles JavaFX.
+## 🚀 Fonctionnalités Clés
+* 🎯 **Sélection Thématique** : Choisissez un domaine spécifique pour générer des questions ciblées.
+* ⚡ **Génération Dynamique** : Les questions sont injectées dynamiquement dans l'interface (**Architecture FXML**).
+* 📊 **Score en Temps Réel** : Calcul automatique et affichage des résultats à la fin du quiz.
+* 🎨 **UI Moderne** : Interface responsive et épurée utilisant les contrôles JavaFX et du **CSS personnalisé**.
 
-🛠️ Stack Technique
-Langage : Java (JDK 17+)
+---
 
-GUI : JavaFX & FXML
+## 🛠️ Stack Technique
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![JavaFX](https://img.shields.io/badge/JavaFX-%23FF0000.svg?style=for-the-badge&logo=java&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
-Design : CSS personnalisé pour le styling des composants
+---
 
-Architecture : Pattern MVC (Model-View-Controller)
+## ⚙️ Installation & Configuration
 
-⚙️ Installation & Configuration
-1. Cloner le projet
-Bash
-git clone https://github.com/BADIAMOHAMEDAYMANE/javafx-project.git
+### 1. Cloner le projet
+```bash
+git clone [https://github.com/BADIAMOHAMEDAYMANE/javafx-project.git](https://github.com/BADIAMOHAMEDAYMANE/javafx-project.git)
 cd javafx-project
 2. Configuration de l'IDE
 IntelliJ / Eclipse : Importer le projet en tant que projet Java.

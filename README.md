@@ -15,7 +15,7 @@
 * 🎯 **Sélection Thématique** : Choisissez un domaine spécifique pour générer des questions ciblées.
 * ⚡ **Génération Dynamique** : Les questions sont injectées dynamiquement dans l'interface (**Architecture FXML**).
 * 📊 **Score en Temps Réel** : Calcul automatique et affichage des résultats à la fin du quiz.
-* 🎨 **UI Moderne** : Interface responsive et épurée utilisant les contrôles JavaFX et du **CSS personnalisé**.
+* 🎨 **UI Moderne** : Interface responsive et épurée utilisant les contrôles JavaFX et des **styles CSS JavaFX** intégrés aux vues FXML.
 
 ---
 
@@ -23,42 +23,66 @@
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![JavaFX](https://img.shields.io/badge/JavaFX-%23FF0000.svg?style=for-the-badge&logo=java&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Maven](https://img.shields.io/badge/maven-C71A36.svg?style=for-the-badge&logo=apachemaven&logoColor=white)
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+
+---
+
+## 🗄️ Données
+
+Les matières, questions et propositions de réponses sont stockées dans **MySQL** et lues via **JDBC** (pattern **DAO** : interfaces `SubjectDao`, `QuestionDao`, `PropositionDao` et leurs implémentations).
 
 ---
 
 ## ⚙️ Installation & Configuration
 
 ### 1. Cloner le projet
+
 ```bash
-git clone [https://github.com/BADIAMOHAMEDAYMANE/javafx-project.git](https://github.com/BADIAMOHAMEDAYMANE/javafx-project.git)
+git clone https://github.com/BADIAMOHAMEDAYMANE/javafx-project.git
 cd javafx-project
-2. Configuration de l'IDE
-IntelliJ / Eclipse : Importer le projet en tant que projet Java.
+```
 
-JavaFX SDK : Assurez-vous d'avoir configuré les bibliothèques JavaFX dans les paramètres du projet.
+### 2. Base de données
 
-VM Options : ```bash
---module-path /votre/chemin/javafx/lib --add-modules javafx.controls,javafx.fxml
+Créer une base MySQL `javafx` (port 3306), puis adapter l'utilisateur et le mot de passe dans `src/main/java/com/jmc/dao/config/DatabaseConnection.java`.
 
+### 3. Lancer l'application (Java 21, Maven)
 
-📂 Structure du Projet
-Plaintext
+```bash
+mvn clean javafx:run
+```
+
+---
+
+## 📂 Structure du projet
+
+```
 javafx-project/
-├── src/
-│   ├── main/
-│   │   ├── java/        # Logique métier & Contrôleurs
-│   │   └── resources/   # Fichiers FXML, Images & Styles CSS
-├── data/                # (Optionnel) Fichiers JSON/XML des questions
-└── README.md
-🔮 Roadmap (Évolutions Futures)
-En tant qu'étudiant en IA & Data Science, les prochaines étapes prévues sont :
+├── pom.xml                          # Maven : JavaFX 21, connecteur MySQL
+└── src/main/
+    ├── java/com/jmc/
+    │   ├── Main.java                # Point d'entrée JavaFX
+    │   ├── model/                   # Subject, Question, Proposition, Quiz
+    │   ├── dao/                     # Interfaces DAO + impl/ + config/ (connexion JDBC)
+    │   ├── service/                 # QuestionService (logique métier)
+    │   └── controller/              # MainController, QuizController, ResultController
+    └── resources/                   # Vues FXML : main-view, quiz-view, result-view
+```
 
-[ ] NLP Integration : Génération automatique de QCM à partir d'un fichier PDF/Texte via un modèle de langage (LLM).
+Architecture **MVC** : les vues FXML sont pilotées par les contrôleurs, qui passent par la couche service puis la couche DAO.
 
-[ ] Analytics Dashboard : Visualisation des statistiques de progression avec des graphiques.
+---
 
-[ ] Export PDF : Possibilité d'exporter le questionnaire généré.
+## 🔮 Roadmap
 
-👤 Auteur
-Mohamed Aymane Badia Étudiant en 4ème année - Spécialité IA & Data Science
+- [ ] Génération automatique de QCM à partir d'un PDF ou d'un texte avec un modèle de langage (LLM)
+- [ ] Tableau de bord des statistiques de progression
+- [ ] Export PDF du questionnaire
+
+---
+
+## 👤 Auteur
+
+**Mohamed Aymane Badia** — élève ingénieur en 5ᵉ année, IA & Data Science (EMSI)
